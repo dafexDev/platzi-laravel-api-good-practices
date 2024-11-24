@@ -17,7 +17,13 @@ class RecipeFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'category_id' => \App\Models\Category::all()->random()->id,
+            'user_id' => \App\Models\User::all()->random()->id,
+            'title' => $this->faker->sentence(),
+            'description' => $this->faker->text(),
+            'ingredients' => $this->faker->text(),
+            'instructions' => $this->faker->text(),
+            'image' => $this->faker->imageUrl(640, 480)
         ];
     }
 }
