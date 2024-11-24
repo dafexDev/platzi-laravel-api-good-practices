@@ -21,7 +21,7 @@ class RecipeController extends Controller
 
     public function store(StoreRecipeRequest $request)
     {
-        $recipe = Recipe::create($request->all());
+        $recipe = $request->user()->recipes()->create($request->validated());
         $recipe->tags()->attach(json_decode($request->tags));
 
         return response()->json(new RecipeResource($recipe), Response::HTTP_CREATED); // 201
@@ -36,8 +36,13 @@ class RecipeController extends Controller
 
     public function update(UpdateRecipeRequest $request, Recipe $recipe)
     {
-        $recipe->update($request->all());
-        $recipe->tags()->sync(json_decode($request->tags));
+        $this->authorize('update', $recipe);
+
+        $recipe->update($request->validated());
+
+        if ($tags = $request->tags) {
+            $recipe->tags()->sync(json_decode($tags));
+        }
 
         return response()->json(new RecipeResource($recipe), Response::HTTP_OK); // 200
     }
