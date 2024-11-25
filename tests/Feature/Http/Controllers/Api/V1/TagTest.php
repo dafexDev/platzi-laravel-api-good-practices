@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Http\Controllers\Api\V1;
 
 use App\Models\Tag;
 use App\Models\User;
@@ -20,7 +20,7 @@ class TagTest extends TestCase
 
         Tag::factory(2)->create();
 
-        $response = $this->getJson('/api/tags');
+        $response = $this->getJson('/api/v1/tags');
         $response->assertStatus(Response::HTTP_OK) // 200
             ->assertJsonCount(2, 'data')
             ->assertJsonStructure([
@@ -43,7 +43,7 @@ class TagTest extends TestCase
 
         $tag = Tag::factory()->create();
 
-        $response = $this->getJson('/api/tags/' . $tag->id);
+        $response = $this->getJson('/api/v1/tags/' . $tag->id);
         $response->assertStatus(Response::HTTP_OK) // 200
             ->assertJsonStructure([
                 'data' => [

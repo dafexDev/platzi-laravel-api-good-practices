@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Http\Controllers\Api\V1;
 
 use App\Models\Category;
 use App\Models\User;
@@ -20,7 +20,7 @@ class CategoryTest extends TestCase
 
         Category::factory(2)->create();
 
-        $response = $this->getJson('/api/categories');
+        $response = $this->getJson('/api/v1/categories');
         $response->assertStatus(Response::HTTP_OK)
             ->assertJsonCount(2, 'data')
             ->assertJsonStructure([
@@ -40,7 +40,7 @@ class CategoryTest extends TestCase
 
         $category = Category::factory()->create();
 
-        $response = $this->getJson('/api/categories/' . $category->id);
+        $response = $this->getJson('/api/v1/categories/' . $category->id);
         $response->assertStatus(Response::HTTP_OK) // 200
             ->assertJsonStructure([
                 'data' => [
