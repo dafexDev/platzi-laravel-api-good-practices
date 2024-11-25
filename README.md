@@ -1,3 +1,14 @@
+# Platzi Laravel API Good Practices
+
+[![PHP](https://img.shields.io/badge/PHP-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
+[![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com/)
+[![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white)](https://mariadb.org/)
+[![Platzi](https://img.shields.io/badge/Platzi-13161c?style=for-the-badge&logo=platzi&logoColor=0ae98a)](https://platzi.com)
+
+Project developed during the [Course on Standards and Good Practices for REST APIs with Laravel at Platzi](https://platzi.com/cursos/buenas-practicas-api/).
+
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
